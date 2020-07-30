@@ -14,6 +14,17 @@
   cursor: pointer;
 }
 
+.endgame {
+  display: none;
+  background-color: rgba(135, 65, 249, 0.592);
+  padding: 45px 80px;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: 110px;
+  height: 115px;
+}
+
 .reset-btn:focus {
   outline: none;
 }
