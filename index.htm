@@ -6,22 +6,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Link: Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+  <!-- Links: Complementos -->
   <link rel="shortcut icon" href="./assets/tic-tac-toe.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Link: Estilo Próprio -->
+  <link rel="stylesheet" href="./css/style.css">
 
   <title>Jogo da Velha</title>
 </head>
 
 <body class="text-center">
-  <table class="mx-auto my-3 game">
+  <table class="mx-auto my-3 game" id="game">
     <tr>
-      <td class="cell" id="0">X</td>
+      <td class="cell" id="0"></td>
 
-      <td class="cell" id="1">O</td>
+      <td class="cell" id="1"></td>
 
       <td class="cell" id="2"></td>
     </tr>
@@ -47,8 +51,9 @@
     <article class="text"></article>
   </div>
 
-  <button class="bg-success text-light rounded-pill pr-4 pl-4 reset-btn" id="reset-btn">Reset</button>
+  <button class="bg-success text-light rounded-pill pr-4 pl-4 reset-btn" id="reset-btn" onclick="startGame()">Reset</button>
 
+  <!-- Scripts: Bootstrap & JQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
   </script>
@@ -58,6 +63,13 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
+
+  <!-- Scripts: Código fonte -->
+  <script src="./javascript/source.js"></script>
+  <script src="./javascript/gameFunctions.js"></script>
+
+  <!-- Scripts: Modos de jogo -->
+  <script src="./javascript/vPlayer.js"></script>
 </body>
 
 </html>
