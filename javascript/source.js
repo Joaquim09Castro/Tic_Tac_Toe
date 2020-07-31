@@ -1,5 +1,8 @@
 const gameSources = {
 
+  // Modo de jogo
+  mode: "p",
+
   // Elementos do tabuleiro
   board: $("#game"),
   cells: document.querySelectorAll(".cell"),
