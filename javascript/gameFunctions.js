@@ -121,3 +121,5 @@ const changeMode = () => {
     gameSources.modeText.innerText = "Player Mode";
   }
 };
+
+startGame();
