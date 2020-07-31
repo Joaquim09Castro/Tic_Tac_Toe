@@ -13,6 +13,8 @@ const gameSources = {
   player2Sqrs: [],
 
   // Elementos de jogabilidade
+  outcomeBox: $("#end-message-container")[0],
+  outcomeText: $("#text")[0],
   currPlayer: "p1",
   winCond: [
     [0, 1, 2],

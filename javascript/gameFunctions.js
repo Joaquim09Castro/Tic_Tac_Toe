@@ -10,7 +10,18 @@ const winCheck = (playerArr, playerTag) => {
   });
 
   if (check) {
-    console.log(playerTag);
+    gameSources.outcomeBox.style.display = "block";
+
+    if (playerTag == "p1") {
+      gameSources.outcomeText.innerText = "Player 1 has Won";
+    } else if (playerTag == "p2"){
+      gameSources.outcomeText.innerText = "Player 2 has Won";
+    }
+
+    for (let squr of gameSources.cells) {
+      squr.removeEventListener("click", turnClick, false);
+      
+    }
   }
 };
 
@@ -34,8 +45,11 @@ const turnClick = (sqr) => {
 
 // Função de inicialização
 const startGame = () => {
-  for (let s of gameSources.cells) {
-    s.innerText = "";
-    s.addEventListener("click", turnClick, false);
+  gameSources.player1Sqrs = [];
+  gameSources.player2Sqrs = [];
+  gameSources.outcomeBox.style.display = "none";
+  for (let squr of gameSources.cells) {
+    squr.innerText = "";
+    squr.addEventListener("click", turnClick, false);
   }
 };
