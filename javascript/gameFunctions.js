@@ -17,6 +17,11 @@ const winCheck = (playerArr, playerTag) => {
     } else if (playerTag == "p2"){
       gameSources.outcomeText.innerText = "Player 2 has Won";
     }
+
+    for (let squr of gameSources.cells) {
+      squr.removeEventListener("click", turnClick, false);
+      
+    }
   }
 };
 
@@ -43,8 +48,8 @@ const startGame = () => {
   gameSources.player1Sqrs = [];
   gameSources.player2Sqrs = [];
   gameSources.outcomeBox.style.display = "none";
-  for (let s of gameSources.cells) {
-    s.innerText = "";
-    s.addEventListener("click", turnClick, false);
+  for (let squr of gameSources.cells) {
+    squr.innerText = "";
+    squr.addEventListener("click", turnClick, false);
   }
 };
