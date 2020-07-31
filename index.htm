@@ -13,7 +13,7 @@
   <!-- Links: Complementos -->
   <link rel="shortcut icon" href="./assets/tic-tac-toe.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
-  
+
   <!-- Link: Estilo Próprio -->
   <link rel="stylesheet" href="./css/style.css">
 
@@ -21,6 +21,10 @@
 </head>
 
 <body class="text-center">
+  <img class="mt-4 mb-3" id="mode-img" src="./assets/person.png" alt="Mode Icon"><br>
+
+  <h3 class="p-2 pr-4 pl-4 bg-secondary d-inline rounded-pill" id="mode-text">Player Mode</h3>
+
   <table class="mx-auto my-3 game" id="game">
     <tr>
       <td class="cell" id="0"></td>
@@ -51,7 +55,10 @@
     <article id="text" class="font-weight-bold text-light"></article>
   </div>
 
-  <button class="bg-success text-light rounded-pill pr-4 pl-4 reset-btn" id="reset-btn" onclick="startGame()">Reset</button>
+  <button class="bg-primary text-light rounded-pill pr-4 pl-4 mb-2 btn-type" id="mode-btn" onclick="changeMode()">Mode</button><br>
+
+  <button class="bg-success text-light rounded-pill pr-4 pl-4 btn-type" id="reset-btn"
+    onclick="startGame()">Reset</button>
 
   <!-- Scripts: Bootstrap & JQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

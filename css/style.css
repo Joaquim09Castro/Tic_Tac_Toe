@@ -21,10 +21,10 @@
   position: absolute;
   left: 20%;
   right: 20%;
-  top: 110px;
+  top: 293px;
   height: 115px;
 }
 
-.reset-btn:focus {
+.btn-type:focus {
   outline: none;
 }
