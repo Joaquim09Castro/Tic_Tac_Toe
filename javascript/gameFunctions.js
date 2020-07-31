@@ -6,7 +6,7 @@ const winCheck = (playerArr, playerTag) => {
     playerArr.find((el) => el == arr[0]) ?
       playerArr.find((el) => el == arr[1]) ?
       playerArr.find((el) => el == arr[2]) ? check = true :
-      undefined : undefined : undefined;  //jshint ignore: line
+      undefined : undefined : undefined; //jshint ignore: line
   });
 
   if (check) {
@@ -14,13 +14,13 @@ const winCheck = (playerArr, playerTag) => {
 
     if (playerTag == "p1") {
       gameSources.outcomeText.innerText = "Player 1 has Won";
-    } else if (playerTag == "p2"){
+    } else if (playerTag == "p2") {
       gameSources.outcomeText.innerText = "Player 2 has Won";
     }
 
     for (let squr of gameSources.cells) {
       squr.removeEventListener("click", turnClick, false);
-      
+
     }
   }
 };
@@ -28,18 +28,22 @@ const winCheck = (playerArr, playerTag) => {
 // Função de evento de clique em célula
 const turnClick = (sqr) => {
   if (gameSources.currPlayer == "p1") {
-    sqr.target.innerText = gameSources.player1;
-    gameSources.player1Sqrs.push(sqr.target.id);
+    if (sqr.target.innerText == "") {
+      sqr.target.innerText = gameSources.player1;
+      gameSources.player1Sqrs.push(sqr.target.id);
 
-    winCheck(gameSources.player1Sqrs, gameSources.currPlayer);
-    gameSources.currPlayer = "p2";
+      winCheck(gameSources.player1Sqrs, gameSources.currPlayer);
+      gameSources.currPlayer = "p2";
+    }
 
   } else if (gameSources.currPlayer == "p2") {
-    sqr.target.innerText = gameSources.player2;
-    gameSources.player2Sqrs.push(sqr.target.id);
+    if (sqr.target.innerText == "") {
+      sqr.target.innerText = gameSources.player2;
+      gameSources.player2Sqrs.push(sqr.target.id);
 
-    winCheck(gameSources.player2Sqrs, gameSources.currPlayer);
-    gameSources.currPlayer = "p1";
+      winCheck(gameSources.player2Sqrs, gameSources.currPlayer);
+      gameSources.currPlayer = "p1";
+    }
   }
 };
 
