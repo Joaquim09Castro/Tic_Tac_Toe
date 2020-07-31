@@ -13,13 +13,34 @@ const winCheck = (playerArr, playerTag) => {
     gameSources.outcomeBox.style.display = "block";
 
     if (playerTag == "p1") {
-      gameSources.outcomeText.innerText = "Player 1 has Won";
+      if (gameSources.mode == 0) {
+        // Modo jogador x jogador
+        gameSources.outcomeText.innerText = "Player 1 has Won!";
+      } else if (gameSources.mode == 1) {
+        // Modo solo
+        gameSources.outcomeText.innerText = "You Won!";
+      }
+
     } else if (playerTag == "p2") {
-      gameSources.outcomeText.innerText = "Player 2 has Won";
+      if (gameSources.mode == 0) {
+        // Modo jogador x jogador
+        gameSources.outcomeText.innerText = "Player 2 has Won!";
+      } else if (gameSources.mode == 1) {
+        // Modo solo
+        gameSources.outcomeText.innerText = "You lost";
+      }
     }
 
-    for (let squr of gameSources.cells) {
-      squr.removeEventListener("click", turnClick, false);
+    for (let sqr of gameSources.cells) {
+      sqr.removeEventListener("click", turnClick, false);
+
+    }
+  } else if (gameSources.player1Sqrs.length + gameSources.player2Sqrs.length == 9) {
+    gameSources.outcomeBox.style.display = "block";
+    gameSources.outcomeText.innerText = "It's a tie";
+
+    for (let sqr of gameSources.cells) {
+      sqr.removeEventListener("click", turnClick, false);
 
     }
   }
@@ -27,23 +48,52 @@ const winCheck = (playerArr, playerTag) => {
 
 // Função de evento de clique em célula
 const turnClick = (sqr) => {
-  if (gameSources.currPlayer == "p1") {
+
+  if (gameSources.mode == 0) {
+    // Modo jogador x jogador
+    if (gameSources.currPlayer == "p1") {
+      if (sqr.target.innerText == "") {
+        sqr.target.innerText = gameSources.player1;
+        gameSources.player1Sqrs.push(sqr.target.id);
+
+        winCheck(gameSources.player1Sqrs, gameSources.currPlayer);
+        gameSources.currPlayer = "p2";
+      }
+
+    } else if (gameSources.currPlayer == "p2") {
+      if (sqr.target.innerText == "") {
+        sqr.target.innerText = gameSources.player2;
+        gameSources.player2Sqrs.push(sqr.target.id);
+
+        winCheck(gameSources.player2Sqrs, gameSources.currPlayer);
+        gameSources.currPlayer = "p1";
+      }
+    }
+  } else if (gameSources.mode == 1) {
+
+    // Modo solo
     if (sqr.target.innerText == "") {
       sqr.target.innerText = gameSources.player1;
       gameSources.player1Sqrs.push(sqr.target.id);
 
       winCheck(gameSources.player1Sqrs, gameSources.currPlayer);
       gameSources.currPlayer = "p2";
+
+      // Turno AI
+      if (gameSources.outcomeText.innerText == "") {
+        for (let t of gameSources.cells) {
+          if (t.innerText != gameSources.player1 && t.innerText != gameSources.player2) {
+            t.innerText = gameSources.player2;
+            gameSources.player2Sqrs.push(t.id);
+            break;
+          }
+        }
+        winCheck(gameSources.player2Sqrs, gameSources.currPlayer);
+        gameSources.currPlayer = "p1";
+      }
     }
 
-  } else if (gameSources.currPlayer == "p2") {
-    if (sqr.target.innerText == "") {
-      sqr.target.innerText = gameSources.player2;
-      gameSources.player2Sqrs.push(sqr.target.id);
 
-      winCheck(gameSources.player2Sqrs, gameSources.currPlayer);
-      gameSources.currPlayer = "p1";
-    }
   }
 };
 
@@ -52,9 +102,10 @@ const startGame = () => {
   gameSources.player1Sqrs = [];
   gameSources.player2Sqrs = [];
   gameSources.outcomeBox.style.display = "none";
-  for (let squr of gameSources.cells) {
-    squr.innerText = "";
-    squr.addEventListener("click", turnClick, false);
+  gameSources.outcomeText.innerText = "";
+  for (let sqr of gameSources.cells) {
+    sqr.innerText = "";
+    sqr.addEventListener("click", turnClick, false);
   }
 };
 
