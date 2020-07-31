@@ -1,7 +1,9 @@
 const gameSources = {
 
   // Modo de jogo
-  mode: "p",
+  mode: 0,
+  modeIcon: $("#mode-img")[0],
+  modeText: $("#mode-text")[0],
 
   // Elementos do tabuleiro
   board: $("#game"),
