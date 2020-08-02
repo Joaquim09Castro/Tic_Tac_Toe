@@ -16,7 +16,7 @@ const winCheck = (playerArr, playerTag) => {
     if (playerTag == "p1") {
       if (gameSources.mode == 0) {
         // Modo jogador x jogador
-        gameSources.outcomeText.innerText = "Player 1 has Won!";
+        gameSources.outcomeText.innerText = "Player 1 Win!";
       } else if (gameSources.mode == 1) {
         // Modo solo
         gameSources.outcomeText.innerText = "You Won!";
@@ -25,7 +25,7 @@ const winCheck = (playerArr, playerTag) => {
     } else if (playerTag == "p2") {
       if (gameSources.mode == 0) {
         // Modo jogador x jogador
-        gameSources.outcomeText.innerText = "Player 2 has Won!";
+        gameSources.outcomeText.innerText = "Player 2 Win!";
       } else if (gameSources.mode == 1) {
         // Modo solo
         gameSources.outcomeText.innerText = "You lost";

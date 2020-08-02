@@ -9,3 +9,5 @@ const startGame = () => {
     sqr.addEventListener("click", turnClick, false);
   }
 };
+
+startGame();
